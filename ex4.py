@@ -3,8 +3,9 @@ from colorama import Fore
 
 def input_error(func):
     def inner(*args, **kwargs):
+        
         try:
-
+            
             return func(*args, **kwargs)
         
         except ValueError:
@@ -13,6 +14,7 @@ def input_error(func):
             return f"{Fore.YELLOW}Contact not found{Fore.RESET}"
         except IndexError:
             return f"{Fore.RED}Usage: phone <name>{Fore.RESET}"
+        
         
 
     return inner
@@ -126,6 +128,7 @@ def show_all(user_info):
     return result
 
 
+
 def main():
     """
     Main function that runs the assistant bot.
@@ -137,6 +140,10 @@ def main():
     while True:
         # Отримуємо команду від користувача
         user_input = input("Enter a command: ").strip().lower()
+        if not user_input:
+            print("Empty input!")
+            continue
+        
         command, data = parse_input(user_input)
 
         # Виконуємо дію в залежності від команди

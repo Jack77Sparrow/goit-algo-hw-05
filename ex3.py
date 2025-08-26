@@ -74,7 +74,7 @@ def count_logs_by_level(logs: list) -> dict:
 
     return count
 
-def display_log_count(count: dict):
+def display_log_counts(count: dict):
     """Виводить дані в зрозумілому форматі
     
     вхідні дані:
@@ -108,7 +108,7 @@ def main():
         return 
 
     count = count_logs_by_level(logs)
-    display_log_count(count)
+    display_log_counts(count)
 
     if len(args) > 2:
         level = args[2]
